@@ -25,36 +25,36 @@ dependencies {
 ```
 
 val config = ShieldCertConfig(
-            publicKey = "-----BEGIN PUBLIC KEY-----.......-----END PUBLIC KEY-----\n",
-            apiKey = "API_KEY",
-            expiredTimeout = 60.toDuration(DurationUnit.MINUTES)
-        )
+    publicKey = "-----BEGIN PUBLIC KEY-----.......-----END PUBLIC KEY-----\n",
+    apiKey = "API_KEY",
+    expiredTimeout = 60.toDuration(DurationUnit.MINUTES)
+)
 
-        ShieldCert.initSDK(
-            application, //APLICATION/CONTEXT/ACTIVITY
-            config
-        )
+ShieldCert.initSDK(
+    application, //APLICATION/CONTEXT/ACTIVITY
+    config
+)
 
 
 // Protect 
 
 val http = HttpClient(CIO) {
-                install(ContentNegotiation) {
-                    json()
-                }
-                install(Logging) {
-                    logger = Logger.ANDROID
-                    level = LogLevel.HEADERS
-                }
-                engine {
-                    sslEngine()
-                }
-            }
-            try {
-                val txt = http.get("https://tls-v1-2.badssl.com:1012").bodyAsText()
-                println(txt)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+    install(ContentNegotiation) {
+        json()
+    }
+    install(Logging) {
+        logger = Logger.ANDROID
+        level = LogLevel.HEADERS
+    }
+    engine {
+        sslEngine()
+    }
+}
+try {
+    val txt = http.get("https://tls-v1-2.badssl.com:1012").bodyAsText()
+    println(txt)
+} catch (e: Exception) {
+    e.printStackTrace()
+}
 ```
 

@@ -4,6 +4,9 @@
 
 ShieldCert is a library that helps you protect your application's communications.
 
+⚠️ **Important:** This SDK requires a valid ShieldCert account and API credentials. Without a ShieldCert backend subscription, the SDK cannot be used.
+
+
 ---
 
 ## Documentation
